@@ -25,5 +25,5 @@ jobs:
       - name: echo a string
         run: write-Output "windows string"
       - name: error step
-        run: doesnotexits
+        run: doesnotexitsss
       
