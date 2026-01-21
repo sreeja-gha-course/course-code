@@ -1,5 +1,9 @@
 name: Working Dirs and Shells
 on: [push]
+defaults:
+    run:
+        shell: bash #to set this shell is a default shell for all the runners machines, we can also set it at job level
+        #working-directory: /de/ed
 jobs:
     display-wd-info:
         runs-on: ubuntu-latest
@@ -11,13 +15,24 @@ jobs:
                 echo $GITHUB_SHA #id of the commit
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE
+            - name: change working directory
+              working-directory: /home/runner
+              run: pwd
     display-wd-info-windows:
         runs-on: windows-latest
+        defaults:
+            run:
+                shell: pwsh
         steps:
             - name: display working dir and list files
               run: |
-                pwd
-                ls -la
-                echo $GITHUB_SHA #id of the commit
-                echo $GITHUB_REPOSITORY
-                echo $GITHUB_WORKSPACE                
+                Get-Location
+                dir
+                echo $env:GITHUB_SHA #id of the commit
+                echo $env:GITHUB_REPOSITORY
+                echo $env:GITHUB_WORKSPACE                
+            - name: python shell
+              shell: python
+              run: |
+                import platform
+                print(platform.processor())
