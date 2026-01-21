@@ -1,0 +1,23 @@
+name: Working Dirs and Shells
+on: [push]
+jobs:
+    display-wd-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: display working dir and list files
+              run: |
+                pwd
+                ls -la
+                echo $GITHUB_SHA #id of the commit
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE
+    display-wd-info-windows:
+        runs-on: windows-latest
+        steps:
+            - name: display working dir and list files
+              run: |
+                pwd
+                ls -la
+                echo $GITHUB_SHA #id of the commit
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE                
