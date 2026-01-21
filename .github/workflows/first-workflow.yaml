@@ -1,12 +1,15 @@
 name: First Workflow
+
 on: [push]
+
 jobs:
-    run-shell-commands: #this is job id
+  run-shell-commands:   # job id
     runs-on: ubuntu-latest
-    steps: 
-     - name: echo a string
-       run: echo "Hello GithubActions"
-     - name: multipleline commands 
-       run: |
-        node -v
-        npm -v
+    steps:
+      - name: echo a string
+        run: echo "Hello GithubActions"
+
+      - name: multiple line commands
+        run: |
+          node -v
+          npm -v
