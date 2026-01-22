@@ -1,6 +1,13 @@
 name: Manual Trigger
 on: 
     workflow_dispatch:
+        inputs:
+            string:
+                description: Astring input
+                type: string 
+                required: true
+                default: "Deafult value"
+
 jobs:
     log-info:
         runs-on: ubuntu-latest
