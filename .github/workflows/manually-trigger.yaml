@@ -7,6 +7,11 @@ on:
                 type: string 
                 required: true
                 default: "Deafult value"
+            number:
+                description: A integral value
+                type: number
+                required: true
+                default: 4
 
 jobs:
     log-info:
