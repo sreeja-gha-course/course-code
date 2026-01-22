@@ -5,10 +5,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: list files before
-              runs: ls -a
+              run: ls -a
             - uses: action/checkout@v3  
             - name: list files after
-              runs: ls -a
+              run: ls -a
     checkout-and-display:
         runs-on: ubuntu-latest
         steps:
