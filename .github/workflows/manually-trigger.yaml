@@ -12,9 +12,16 @@ on:
                 type: number
                 required: true
                 default: 4
+            environment:
+                description: "Environment"
+                type: environment
+                required: true
 
 jobs:
     log-info:
         runs-on: ubuntu-latest
-        steps:
+        steps: |
             - run: echo $GITHUB_REF
+            - run: echo "string: ${{inputs.string}}"
+            - run: echo "Number: ${{inputs.number}}"
+            - run: echo "Environment: ${{inputs.environment}}"
