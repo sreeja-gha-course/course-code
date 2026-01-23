@@ -1,27 +1,30 @@
 name: Manual Trigger
-on: 
-    workflow_dispatch:
-        inputs:
-            string:
-                description: Astring input
-                type: string 
-                required: true
-                default: "Deafult value"
-            number:
-                description: A integral value
-                type: number
-                required: true
-                default: 4
-            environment:
-                description: "Environment"
-                type: environment
-                required: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      string:
+        description: A string input
+        type: string
+        required: true
+        default: "Default value"
+
+      number:
+        description: An integral value
+        type: number
+        required: true
+        default: 4
+
+      environment:
+        description: Environment
+        type: environment
+        required: true
 
 jobs:
-    log-info:
-        runs-on: ubuntu-latest
-        steps: |
-            - run: echo $GITHUB_REF
-            - run: echo "string: ${{ inputs.string }}"
-            - run: echo "Number: ${{ inputs.number }}"
-            - run: echo "Environment: ${{ inputs.environment }}"
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$GITHUB_REF"
+      - run: echo "String: ${{ inputs.string }}"
+      - run: echo "Number: ${{ inputs.number }}"
+      - run: echo "Environment: ${{ inputs.environment }}"
