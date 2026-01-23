@@ -22,6 +22,6 @@ jobs:
         runs-on: ubuntu-latest
         steps: |
             - run: echo $GITHUB_REF
-            - run: echo "string: ${{inputs.string}}"
-            - run: echo "Number: ${{inputs.number}}"
-            - run: echo "Environment: ${{inputs.environment}}"
+            - run: echo "string: ${{ inputs.string }}"
+            - run: echo "Number: ${{ inputs.number }}"
+            - run: echo "Environment: ${{ inputs.environment }}"
