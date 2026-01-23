@@ -23,8 +23,9 @@ on:
 jobs:
   log-info:
     runs-on: ubuntu-latest
-    steps:
-      - run: echo "$GITHUB_REF"
-      - run: echo "String: ${{ inputs.string }}"
-      - run: echo "Number: ${{ inputs.number }}"
-      - run: echo "Environment: ${{ inputs.environment }}"
+    steps: 
+        - run: |
+            echo "$GITHUB_REF"
+            echo "String: ${{ inputs.string }}"
+            echo  "Number: ${{ inputs.number }}"
+            echo "Environment: ${{ inputs.environment }}"
