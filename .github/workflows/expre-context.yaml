@@ -9,7 +9,6 @@ jobs:
             - name: Expressions
               id: expressions
               run: |
-                echo ${{ 1 }}
                 echo ${{ 'This is a string' }}
                 echo ${{ null }}
                 echo ${{ 1>2 }}
