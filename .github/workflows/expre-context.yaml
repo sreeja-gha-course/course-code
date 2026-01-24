@@ -15,9 +15,9 @@ jobs:
                 echo ${{ true && false}}
                 echo ${{ true ||(false &&true) }}
             - name: dump Context
-                run: |
-                  echo '${{ toJson(github) }}'
-                  echo '${{ toJson(job) }}'
-                  echo '${{ toJson(secrets) }}'
-                  echo '${{ toJson(steps) }}'
-                  echo '${{ toJson(runner) }}'
+              run: |
+                echo '${{ toJson(github) }}'
+                echo '${{ toJson(job) }}'
+                echo '${{ toJson(secrets) }}'
+                echo '${{ toJson(steps) }}'
+                echo '${{ toJson(runner) }}'
