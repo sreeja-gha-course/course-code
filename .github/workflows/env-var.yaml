@@ -17,9 +17,9 @@ jobs:
               run: |
                 echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV"  # this value writes into GITHUB_ENV file in runner machine
                 echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
-            - name: Multi line string
-              DELIMETER=1234
+            - name: Multi line-string
               run: |
+                DELIMETER=1234
                 echo "RANDOM_JOKE <<$DELIMETER" >> "$GITHUB_ENV"
                 echo "HEre is a joke" >>"$GITHUB_ENV"
                 echo "JUST for fun there is no joke" >> "$GITHUB_ENV"
