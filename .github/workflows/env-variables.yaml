@@ -3,6 +3,8 @@ on: [push]
 jobs:
     env-vars-and-context:
         runs-on: ubuntu-latest
+        if: $GITHUB_REF=='ref/heads/main'
+        #if: github.ref =='ref/heads/main'
         steps:
             - name: Log Env VAR
               run: echo $GITHUB_REF  # this is evaluated by the runner machine
