@@ -8,6 +8,7 @@ jobs:
               run: sleep 20
             - name: step 2
               id: step-2
+              continue-on-error: true   # we prevent entire job from failing if this step failed
               run: exit 1
             - name: Runs on step2 Failure
              # if: steps.step-2.conclusion=='failure' # in the background it treats as success so this step does not execute
