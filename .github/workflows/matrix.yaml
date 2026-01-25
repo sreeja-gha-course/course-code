@@ -35,7 +35,7 @@ jobs:
                 exclude:
                     - os: ubuntu-latest  # ubuntu-latest with version 14 is not going to run
                       node-version: 14
-            fail-fast: false Even if one job fails w.f doen't get cancelled other jobs will continue to execute
+            fail-fast: #false Even if one job fails w.f doen't get cancelled other jobs will continue to execute
             #max-parallel: 3 # to limit how many parallel jobs can run at a time in w.f
         runs-on: '${{ matrix.os }}'
         steps:
