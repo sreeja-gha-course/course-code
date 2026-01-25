@@ -1,6 +1,18 @@
 name: Matrix
 on: [push]
 
+#original-combinations[ubuntu-latest,version14                 if the new addeed item is not going to override it going to be merged with existing item
+#ubuntu-latest,version:15
+#ubuntu-latest,version:16
+#windows-latest,version:14
+#windows-latest,version:15
+#windows-latest,version:16
+# new item is going to added that is os: macos-latest,version:15]
+
+
+
+
+
 jobs:
     node-matrix:
         continue-on-error: false
@@ -8,10 +20,27 @@ jobs:
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 node-version: [14,15,16]
-            max-parallel: 3 # to limit how many parallel jobs can run at a time in w.f
+                includes:
+                    - os: ubuntu-latest
+                      is-ubuntu: true
+                    - os: macos-latest
+                      node-version: 15
+                    - experimental: false  # going to merged with all the combinations
+                    - os: ubuntu-latest
+                      node-version: 16
+                      experimental: true
+                    - os: ubuntu-latest
+                      node-version: 17
+                      experimental: true
+                exclude:
+                    -os: ubuntu-latest  # ubuntu-latest with version 14 is not going to run
+                    node-version: 14
+            #fail-fast: false Even if one job fails w.f doen't get cancelled other jobs will continue to execute
+            #max-parallel: 3 # to limit how many parallel jobs can run at a time in w.f
         runs-on: '${{ matrix.os }}'
         steps:
             - run: node -v
+            - run: echo '${{ toJson(matrix) }}'
             - uses: actions/setup-node@v3
               with:
                 node-version: '${{ matrix.node-version }}'
