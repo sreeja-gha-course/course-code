@@ -9,10 +9,13 @@ jobs:
             - name: step 2
               id: step-2
               run: exit 1
-            - name: Runs on Failure
+            - name: Runs on step2 Failure
              # if: steps.step-2.conclusion=='failure' # in the background it treats as success so this step does not execute
               if : failure() && steps.step-2.conclusion =='failure'
               run: echo 'step 2 has failed'
+            - name: Runs only fails
+              if: failure()
+              run: echo " failures onl"
             - name: Runs on success
               if: success()
               run: echo 'Runs on success'
