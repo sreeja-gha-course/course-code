@@ -1,0 +1,16 @@
+name: calling Reusable workflow
+on: 
+    workflow_dispatch:
+        inputs:
+            name:
+                description: "Input Description"
+                type: string
+                default: "All"
+                required: true
+jobs:
+    callling-reusable-W.F:
+        uses: sreeja-gha-course/workflows/.github/workflows/reusable.yaml@$GITHUB_SHA
+        with:
+            name: ${{ inputs.name }}
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
