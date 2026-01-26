@@ -1,0 +1,20 @@
+name: concurrency-2
+run-name: concurrency-2  (${{ inputs.environmet }})
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment"
+                type: environment
+                required: true
+concurrency:
+    group: ${{ github.event.inputs.environment }}
+    #group: concurrency-1  # it cancelled the workflows in queue even they are different environment to prevent this we need dynamic group
+    cancel-in-progress: true
+jobs:
+    sleep:
+        runs-on: ubuntu-latest
+        steps:
+            - run: sleep 30
+
+# concurrency: concurrency-1 instead of passing it directly as string pass it as group
