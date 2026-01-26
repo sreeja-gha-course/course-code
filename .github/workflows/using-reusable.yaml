@@ -9,7 +9,7 @@ on:
                 required: true
 jobs:
     calling-reusable-WF:
-        uses: sreeja-gha-course/workflows/.github/workflows/reusable.yaml@$GITHUB_SHA
+        uses: sreeja-gha-course/workflows/.github/workflows/reusable.yaml@main
         with:
             name: ${{ inputs.name }}
         secrets:
