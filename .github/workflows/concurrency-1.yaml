@@ -8,7 +8,7 @@ on:
                 type: environment
                 required: true
 concurrency:
-    group: '${{ github.event.inputs.environmet }}'
+    group: ${{ github.event.inputs.environmet }}
     #group: concurrency-1  # it cancelled the workflows in queue even they are different environment to prevent this we need dynamic group
     cancel-in-progress: true
 jobs:
