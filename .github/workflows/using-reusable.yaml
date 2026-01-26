@@ -8,7 +8,7 @@ on:
                 default: "All"
                 required: true
 jobs:
-    callling-reusable-W.F:
+    calling-reusable-WF:
         uses: sreeja-gha-course/workflows/.github/workflows/reusable.yaml@$GITHUB_SHA
         with:
             name: ${{ inputs.name }}
