@@ -15,7 +15,7 @@ jobs:
         secrets:
             access-token: ${{ secrets.ACCESS_TOKEN }}
     calling-reusable-wf-samerepo:
-         uses: ./.github/workflows/reusable-wf.yaml
+         uses: ./.github/workflows/reusabe-wf.yaml
     using-reusable-wf-output:
         runs-on: ubuntu-latest
         needs: calling-reusable-wf-samerepo
