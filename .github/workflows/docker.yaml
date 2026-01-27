@@ -35,9 +35,9 @@ jobs:
                 args: text.txt
             - uses: actions/checkout@v3
             - name: make script executable
-              run: chmod 766 ./script.sh
+              run: chmod 766 ./.github/workflows/script.sh
             - name: Run a Bash script
               uses: docker://node:18.16-alpine3.17
               with: 
-                entrypoint: ./script.sh
+                entrypoint: ./.github/workflows/script.sh
                 args: "some string" 
